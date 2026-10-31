@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- HEADER (tidak ikut scroll) -->
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="1dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logohome" />
+    </LinearLayout>
+
+    <!-- SCROLL CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Search Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#EEEEEE"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="2dp"
+                android:clipToPadding="false"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#EEEEEE">
+
+                <EditText
+                    android:id="@+id/edtSearch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:hint="Cari jasa..."
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:inputType="text" />
+
+                <ImageView
+                    android:id="@+id/btnClearSearch"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:padding="4dp"
+                    android:visibility="gone"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"/>
+            </LinearLayout>
+
+            <!-- Grid Kategori -->
+            <GridLayout
+                android:id="@+id/gridCategories"
+                android:columnCount="2"
+                android:alignmentMode="alignMargins"
+                android:useDefaultMargins="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp" />
+
+            <!-- Tombol Tambah Tempat -->
+            <Button
+                android:id="@+id/btnAddPlace"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/button"
+                android:text="Tambah Tempat Baru"
+                android:textColor="#00897B"/>
+
+            <!-- Filter Buttons -->
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnFilterNearest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button"
+                    android:text="Terdekat"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="#00897B" />
+
+                <Button
+                    android:id="@+id/btnFilterOpen"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:background="@drawable/button"
+                    android:textColor="#00897B"
+                    android:layout_marginBottom="4dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buka" />
+
+                <Button
+                    android:id="@+id/btnFilterRating"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/button"
+                    android:textColor="#00897B"
+                    android:layout_marginBottom="4dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rating" />
+            </LinearLayout>
+
+            <!-- Judul Rekomendasi -->
+            <!-- Title + Favorites in one row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- Rekomendasi Tempat -->
+                <TextView
+                    android:id="@+id/txtTitleRecommend"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rekomendasi Tempat"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Favorit (klik untuk pindah halaman) -->
+                <TextView
+                    android:id="@+id/txtFavorites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:textSize="16sp"
+                    android:textColor="#00897B"
+                    android:textStyle="bold"
+                    android:padding="6dp"
+
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/favorit_underlined" />
+            </LinearLayout>
+
+
+            <!-- RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecommendation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
